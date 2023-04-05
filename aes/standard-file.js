@@ -9,6 +9,10 @@ const checksum = (file) => {
         .digest('hex');
 }
 
+const genkey = () => {
+    return crypto.randomBytes(32).toString('base64')
+}
+
 const encrypt = (key, file) => {
     key = Buffer.from(key, 'base64')
     const iv = crypto.randomBytes(16);
@@ -61,7 +65,7 @@ if (require.main === module) {
             console.log('File decrypted successfully.');
             break;
         case "genkey":
-            console.log(crypto.randomBytes(32).toString('base64'))
+            console.log(genkey())
             break;
         default:
             console.error('You have to supply the action [encrypt, decrypt, genkey]')
@@ -70,4 +74,4 @@ if (require.main === module) {
 }
 
 
-module.exports = {checksum, encrypt, decrypt};
+module.exports = {checksum, encrypt, decrypt, genkey};
