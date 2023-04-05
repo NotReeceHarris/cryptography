@@ -1,0 +1,8 @@
+{
+  "name": "aes",
+  "scripts": {
+    "encrypt": "node .\\standard-file.js encrypt",
+    "decrypt": "node .\\standard-file.js decrypt"
+  },
+  "license": "APGL-3.0"
+}
